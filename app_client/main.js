@@ -38,9 +38,9 @@
   function run($rootScope, $location, authentication) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
       console.log("Handling route change");
-      if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
+      if (($location.path() === '/profile' || $location.path() === '/lobby') && !authentication.isLoggedIn()) {
         $location.path('/');
-      } else if (authentication.isLoggedIn()) {
+      } else if ($location.path() !== '/lobby' && authentication.isLoggedIn()) {
         $location.path('/profile');
       }
     });

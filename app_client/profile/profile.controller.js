@@ -33,12 +33,12 @@
           $location.path('/');
         });
     };
+    
+    vm.onJoin = function () {
+      console.log("Joining lobby")
+      $location.path('/lobby');
+    };
   
 }
-  /*app.get('/', function (req, res){
-   req.session.destroy(function (err) {
-     res.redirect('/'); //Inside a callback… bulletproof!
-   });
- });*/
 
 })();
