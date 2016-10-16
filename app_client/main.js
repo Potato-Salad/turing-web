@@ -24,6 +24,11 @@
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
+      .when('/lobby', {
+        templateUrl: '/lobby/lobby.view.html',
+        controller: 'lobbyCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API

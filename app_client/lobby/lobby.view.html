@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Imitationga.me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="lobby.view.js"></script>
+  <ul class="pages">
+    <li class="participants page">
+      <div id="participants_roll">
+        <ul id="participants"></ul>
+      </div>
+      <div id="participant_count"></div>
+    </li>
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages">
+        </ul>
+      </div>
+      <input class="inputMessage" maxlength="200" placeholder="Type a message here..." />
+    </li>
+    <li class="login page">
+      <div class="form">
+        <h3 class="title">Select a Lobby</h3>
+        <select id="lobby">
+          <option value="lobby_a">Lobby A</option>
+          <option value="lobby_b">Lobby B</option>
+          <option value="lobby_c">Lobby C</option>
+        </select>
+        <h3 class="title">What's your nickname? Only you will see this.</h3>
+        <input type="text" class="usernameInput" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+</body>
+</html>
