@@ -7,7 +7,7 @@
 
       <h1 class="form-signin-heading">Your profile</h1>
 
-      <form ng-click="vm.onLogout()">
+      <form ng-click="vm.onJoin()">
         <div class="form-group">
           <label class="col-sm-3 control-label">Full name</label>
           <p class="form-control-static">{{ vm.user.name }}</p>
@@ -16,11 +16,14 @@
           <label class="col-sm-3 control-label">Email</label>
           <p class="form-control-static">{{ vm.user.email }}</p>
         </div>
-		<button type="button" class="btn btn-default"> Join Lobby</button>
-		<button type="button" class="btn btn-default"> Leader Board </button>
-		<button type="button" class="btn btn-default">Logout!</button>
+		<button type="button" class="btn btn-default">Join Lobby</button>
       </form>
-
+      <form ng-click="vm.onLeader()">
+        <button type="button" class="btn btn-default">Leader Board </button>
+      </form>
+      <form ng-click="vm.onLogout()">
+        <button type="button" class="btn btn-default">Logout!</button>
+      </form>
     </div>
 
   </div>
