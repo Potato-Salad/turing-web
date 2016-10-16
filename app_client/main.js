@@ -2,6 +2,12 @@
 
   angular.module('meanApp', ['ngRoute']);
 
+  function skip($location, authentication) {
+    if (authentication.isLoggedIn()) {
+      $location.path('/profile');
+    }
+  }
+
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -32,8 +38,11 @@
 
   function run($rootScope, $location, authentication) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
+      console.log("Handling route change");
       if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
         $location.path('/');
+      } else if (authentication.isLoggedIn()) {
+        $location.path('/profile');
       }
     });
   }
