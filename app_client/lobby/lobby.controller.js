@@ -10,8 +10,19 @@ var UI,
     socket,
     counter = 0;
 
-$(function () {
+(function () {
 
+  angular
+    .module('meanApp')
+    .controller('lobbyCtrl', lobbyCtrl);
+
+  lobbyCtrl.$inject = ['$window'];
+  function lobbyCtrl($window) {
+    console.log("lobbyCtrl called")
+    var vm = this;
+
+    vm.user = {};
+    
     var FADE_TIME           = 150,
         TYPING_TIMER_LENGTH = 400,
         COLORS              = [
@@ -424,5 +435,7 @@ $(function () {
                 console.log(data.username + " clicked the button!");
             });
         }
+        
+    }
 
-});
+})();
