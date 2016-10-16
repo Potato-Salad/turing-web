@@ -1,6 +1,7 @@
 # From: https://github.com/github/gitignore/blob/master/Node.gitignore
 
 # Logs
+.DS_Store
 logs
 *.log
 npm-debug.log*
