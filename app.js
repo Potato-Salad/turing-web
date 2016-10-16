@@ -198,7 +198,22 @@ io.on('connection',function(socket){
         socket.broadcast.to(lobby).emit('new message',{
             username    : "anonymous",
             message     : data
-        });}
+        });
+
+        //bots response
+
+        var prob = 1/numUsers[lobby];
+        var response = "";
+        console.log(data);
+        if(Math.random <= prob){
+            response = respond(data,0);
+        };
+        console.log(response);
+        socket.broadcast.to(lobby).emit('new message',{
+            username    : "anonymous",
+            message     :  response
+        });
+    };
     });
 
     // when client emits add user
