@@ -2,12 +2,6 @@
 
   angular.module('meanApp', ['ngRoute']);
 
-  function skip($location, authentication) {
-    if (authentication.isLoggedIn()) {
-      $location.path('/profile');
-    }
-  }
-
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
