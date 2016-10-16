@@ -56,7 +56,9 @@
     };
 
     logout = function() {
-      $window.localStorage.removeItem('mean-token');
+      return $http.post('/api/logout').success(function(data) {
+        $window.localStorage.removeItem('mean-token');
+      });
     };
 
     return {
