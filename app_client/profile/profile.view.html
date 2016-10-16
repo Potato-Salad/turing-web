@@ -7,7 +7,7 @@
 
       <h1 class="form-signin-heading">Your profile</h1>
 
-      <form  class="form-horizontal">
+      <form  class="form-horizontal" ng-submit="vm.onlogout()">
         <div class="form-group">
           <label class="col-sm-3 control-label">Full name</label>
           <p class="form-control-static">{{ vm.user.name }}</p>
@@ -16,6 +16,7 @@
           <label class="col-sm-3 control-label">Email</label>
           <p class="form-control-static">{{ vm.user.email }}</p>
         </div>
+        <button type="submit" class="btn btn-default">Logout!</button>
       </form>
 
     </div>

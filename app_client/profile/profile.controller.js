@@ -1,5 +1,8 @@
 (function() {
   
+   var express = require(express);
+   var app = express();
+
   angular
     .module('meanApp')
     .controller('profileCtrl', profileCtrl);
@@ -17,6 +20,12 @@
       .error(function (e) {
         console.log(e);
       });
-  }
+  
+}
+  app.get('/', function (req, res){
+   req.session.destroy(function (err) {
+     res.redirect('/'); //Inside a callback… bulletproof!
+   });
+ });
 
 })();
