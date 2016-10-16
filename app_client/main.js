@@ -24,6 +24,11 @@
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
+      .when('/lobby', {
+        templateUrl: '/lobby/lobby.view.html',
+        controller: 'lobbyCtrl',
+        controllerAs: 'vm'
+      })
       .otherwise({redirectTo: '/'});
 
     // use the HTML5 History API
@@ -32,8 +37,11 @@
 
   function run($rootScope, $location, authentication) {
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-      if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
+      console.log("Handling route change");
+      if (($location.path() === '/profile' || $location.path() === '/lobby') && !authentication.isLoggedIn()) {
         $location.path('/');
+      } else if ($location.path() !== '/lobby' && authentication.isLoggedIn()) {
+        $location.path('/profile');
       }
     });
   }
