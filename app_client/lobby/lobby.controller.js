@@ -51,7 +51,7 @@ var UI,
             doLog('addParticipantMessage', data);
             var message = '';
 
-            message += data.numUsers  + ' participant' + (data.numUsers === 1 ? '' : 's');
+            message += (data.numUsers + 1)  + ' participant' + ((data.numUsers + 1)=== 1 ? '' : 's');
 
             UI.participantCount.html(message);
         }
@@ -173,7 +173,7 @@ var UI,
 
             if (participants.length){
                 var lastElem,lastKey=0;
-
+              
                 for (var key in keys){
 
                     var foundKey = currentKeys.indexOf(keys[key]);
@@ -184,7 +184,7 @@ var UI,
                         lastKey = foundKey + 1;
                     } else {
                         var currentElem = $(participants.get(lastKey));
-
+                    
                         if (keys[key] !== currentElem.text()){
                             var participant = createParticipantEntry(keys[key]);
                             if (lastElem){
@@ -203,6 +203,8 @@ var UI,
                 }
 
             } else {
+                str += createParticipantEntry("anonymous");
+              //    UI.participants.prepend(createParticipantEntry("anonymous"));
                 for (var key in keys)
                     str += createParticipantEntry(keys[key]);
                 UI.participants.html(str);
